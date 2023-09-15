@@ -1,31 +1,33 @@
 import React, { useState } from 'react';
 
 const HabitGrid = () => {
-  const [habits, setHabits] = useState([
-    { name: 'Habit 1', completed: false },
-    { name: 'Habit 2', completed: false },
-    // Add more habits as needed
-  ]);
+  const [habits, setHabits] = useState(Array(60).fill(false));
+  const [message, setMessage] = useState('');
 
-  const toggleHabit = (index) => {
+  const toggleDay = (index) => {
     const updatedHabits = [...habits];
-    updatedHabits[index].completed = !updatedHabits[index].completed;
+    updatedHabits[index] = !updatedHabits[index];
     setHabits(updatedHabits);
+
+    if (updatedHabits[index]) {
+      setMessage('Nice work, keep it up!');
+    } else {
+      setMessage('');
+    }
   };
 
   return (
-    <div className="grid grid-cols-3 gap-4">
-      {habits.map((habit, index) => (
+    <div className="flex flex-wrap">
+      {habits.map((completed, index) => (
         <div
           key={index}
-          className={`p-4 rounded-md cursor-pointer ${
-            habit.completed ? 'bg-green-400' : 'bg-red-400'
+          onClick={() => toggleDay(index)}
+          className={`w-4 h-4 rounded-md cursor-pointer my-1 mx-1 ${
+            completed ? 'bg-green-400' : 'bg-red-400'
           }`}
-          onClick={() => toggleHabit(index)}
-        >
-          {habit.name}
-        </div>
+        />
       ))}
+      <div className="w-full text-center text-green-600 mt-2">{message}</div>
     </div>
   );
 };
