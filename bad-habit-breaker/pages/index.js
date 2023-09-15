@@ -3,6 +3,7 @@ import HabitGrid from "../components/HabitGrid";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Image from "next/image";
 import smoking from "../public/smokevape.svg";
+import alcohol from "../public/alcohol2.png";
 
 
 
@@ -35,8 +36,11 @@ const Home = () => {
       >
         <h1 className="w-full text-2xl font-bold text-purple-300 m-4">Breaking The Habits</h1>
         <ul className="uppercase p-4">
-        <a href="#internet">
-            <li className="p-4 border-b border-gray-600">Smoking</li>
+        <a href="#Smoking">
+            <li className="p-4 border-b border-gray-600">Smoking/Vaping</li>
+          </a>
+          <a href="#Drinking">
+            <li className="p-4 border-b border-gray-600">Binge Drinking</li>
           </a>
           
         </ul>
@@ -51,9 +55,15 @@ const Home = () => {
       </div>
       </div>
       {/* Smoking/Vaping */}
-    <div className="container mx-auto mt-8">
+    <div id="Smoking" className="container mx-auto mt-8 mb-96">
       <h1 className="text-2xl font-semibold mb-4 text-center">Smoking/Vaping</h1>
-      <Image alt="smoking" src={smoking} className='w-[300px] mx-auto my-10' />
+      <Image alt="smoking" src={smoking} className='w-[200px] mx-auto my-10' />
+      <HabitGrid />
+    </div>
+     {/* Alcohol */}
+     <div id="Drinking" className="container mx-auto mb-96">
+      <h1 className="text-2xl font-semibold mb-4 text-center">Binge Drinking</h1>
+      <Image alt="smoking" src={alcohol} className='w-[200px] mx-auto my-10' />
       <HabitGrid />
     </div>
     </main>
