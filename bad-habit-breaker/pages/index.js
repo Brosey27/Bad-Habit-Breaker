@@ -47,9 +47,10 @@ const Home = () => {
           <div className="maxw-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
         <h1 className='text-gra-300 md:text-4xl sm:text-6xl text-4xl font-bold md:py-6'>Break your <span className="text-red-500">Bad</span> Habits</h1>
         <p className='md:text-2xl sm:text-4xl text-xl font-bold py-4'>This interactive application will help you visualise your bad habit breaking journey.</p>
-        
+        <p>According to the internet it can take an average of 30 to 60 days to actually break a habit. Lets put this to the test shall we? For each section you will see 60 squares symbolising each day, everytime you abstain from the corresponding bad habit of each section click the square and do not break the pattern. Consistency is key, you got this!</p>
       </div>
       </div>
+      {/* Smoking/Vaping */}
     <div className="container mx-auto mt-8">
       <h1 className="text-2xl font-semibold mb-4 text-center">Smoking/Vaping</h1>
       <Image alt="smoking" src={smoking} className='w-[300px] mx-auto my-10' />
