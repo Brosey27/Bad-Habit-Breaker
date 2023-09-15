@@ -46,7 +46,7 @@ const Home = () => {
     <div className="text-white">
           <div className="maxw-[800px] mt-[-96px] w-full h-screen mx-auto text-center flex flex-col justify-center">
         <h1 className='text-gra-300 md:text-4xl sm:text-6xl text-4xl font-bold md:py-6'>Break your <span className="text-red-500">Bad</span> Habits</h1>
-        <p className='md:text-2xl sm:text-4xl text-xl font-bold py-4'>This interactive application will help you visualise your bad habit breaking journey</p>
+        <p className='md:text-2xl sm:text-4xl text-xl font-bold py-4'>This interactive application will help you visualise your bad habit breaking journey.</p>
         
       </div>
       </div>

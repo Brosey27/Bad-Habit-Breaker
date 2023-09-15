@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const HabitGrid = () => {
-  const [habits, setHabits] = useState(Array(60).fill(false));
+  const totalSquares = 60; // Total number of squares
+  const [habits, setHabits] = useState(Array(totalSquares).fill(false));
   const [message, setMessage] = useState('');
 
   const toggleDay = (index) => {
@@ -9,8 +10,22 @@ const HabitGrid = () => {
     updatedHabits[index] = !updatedHabits[index];
     setHabits(updatedHabits);
 
-    if (updatedHabits[index]) {
-      setMessage('Nice work, keep it up!');
+    const clickedCount = updatedHabits.filter(Boolean).length;
+
+    if (clickedCount >= 60) {
+      setMessage("You did it! You have changed your life for the better! 🏆");
+    } else if (clickedCount >= 50) {
+      setMessage("Not long now, you got this in the bag! 🎖️");
+    } else if (clickedCount >= 40) {
+      setMessage("You are a disciplined legend! 🏅");
+    } else if (clickedCount >= 30) {
+      setMessage("Hide all your bad habits because you are killin' this! 🥇");
+    } else if (clickedCount >= 20) {
+      setMessage("Nice work, you have the discipline of a samurai! 🥈");
+    } else if (clickedCount >= 10) {
+      setMessage("Wow, you are smashing this out of the park! 🥉");
+    } else if (clickedCount >= 1) {
+      setMessage("Well done, keep up the great work! 🔥");
     } else {
       setMessage('');
     }
