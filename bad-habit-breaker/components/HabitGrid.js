@@ -1,16 +1,22 @@
 import React, { useState } from 'react';
 
-const HabitGrid = () => {
+const HabitGrid = ({ section, updateEarnings }) => {
   const totalSquares = 60; // Total number of squares
   const [habits, setHabits] = useState(Array(totalSquares).fill(false));
   const [message, setMessage] = useState('');
 
   const toggleDay = (index) => {
+    console.log("toggleDay called"); // Add this line for debugging
     const updatedHabits = [...habits];
     updatedHabits[index] = !updatedHabits[index];
     setHabits(updatedHabits);
 
     const clickedCount = updatedHabits.filter(Boolean).length;
+
+    const earningsPerClick = 25.0;
+    const totalEarnings = clickedCount * earningsPerClick;
+
+    updateEarnings(totalEarnings); // Call the callback to update earnings in Home component
 
     if (clickedCount >= 60) {
       setMessage("You did it! You have changed your life for the better! 🏆");
