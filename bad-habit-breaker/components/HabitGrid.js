@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const HabitGrid = ({ section, updateEarnings }) => {
   const totalSquares = 60; // Total number of squares
   const [habits, setHabits] = useState(Array(totalSquares).fill(false));
   const [message, setMessage] = useState('');
+  const [completedCount, setCompletedCount] = useState(0); // Add this state
+  const [barWidth, setBarWidth] = useState(0); // Add a state for the bar width
+
+  useEffect(() => {
+    // Calculate the width of the green bar based on the completedCount
+    const newBarWidth = (completedCount / totalSquares) * 100;
+    setBarWidth(newBarWidth);
+  }, [completedCount]);
 
   const toggleDay = (index) => {
     console.log("toggleDay called"); // Add this line for debugging
@@ -35,6 +43,7 @@ const HabitGrid = ({ section, updateEarnings }) => {
     } else {
       setMessage('');
     }
+    setCompletedCount(clickedCount); // Update the completedCount
   };
 
   return (
@@ -49,6 +58,10 @@ const HabitGrid = ({ section, updateEarnings }) => {
         />
       ))}
       <div className="w-full text-center text-green-600 mt-2">{message}</div>
+      <div
+            className="bg-green-500 h-8 rounded-md"
+            style={{ width: `${barWidth}%` }} // Set the width as a percentage
+          ></div>
     </div>
   );
 };

@@ -1,29 +1,30 @@
-const EarningsGraph = ({ section, earningsSmoking, earningsDrinking }) => {
+const EarningsGraph = ({ section, earningsSmoking, earningsDrinking, allClicked, totalSquares }) => {
   const maxWidth = 300; // Adjust this based on your design
   let barWidth;
 
-  if (section === "Smoking") {
-    barWidth = Math.min(maxWidth, earningsSmoking);
-  } else if (section === "Drinking") {
-    barWidth = Math.min(maxWidth, earningsDrinking);
-  }
+  // Calculate the ratio of clicked squares to total squares
+  const ratio = allClicked ? 1 : totalSquares > 0 ? earningsSmoking / (totalSquares * 25) : 0;
+
+  barWidth = maxWidth * ratio;
 
   // Calculate the total earnings based on the section-specific earnings
-  const totalEarnings = section === "Smoking" ? earningsSmoking : earningsDrinking;
+  const totalEarnings =
+    section === "Smoking" ? earningsSmoking : section === "Drinking" ? earningsDrinking : 0;
 
-  // Format the total earnings with two decimal places
-  const formattedEarnings = totalEarnings.toFixed(2);
+  // Check if totalEarnings is a number before formatting
+  const formattedEarnings =
+    typeof totalEarnings === "number" ? totalEarnings.toFixed(2) : "0.00";
 
+  // Change the label and remove the "Earnings Graph" text
   return (
     <div className="mt-4">
-      <h2 className="text-xl font-semibold mb-2">Earnings Graph</h2>
       <div className="bg-gray-300 h-8 rounded-md">
         <div
           className="bg-green-500 h-8 rounded-md"
-          style={{ width: `${(barWidth / maxWidth) * 100}%` }}
+          style={{ width: `${barWidth}px` }}
         ></div>
       </div>
-      <p className="mt-2">Total Earnings: ${formattedEarnings}</p>
+      <p className="mt-2">Total Savings: ${formattedEarnings}</p>
     </div>
   );
 };

@@ -13,6 +13,7 @@ const Home = () => {
   const [nav, setNav] = useState(true);
   const [earningsSmoking, setEarningsSmoking] = useState(0);
 const [earningsDrinking, setEarningsDrinking] = useState(0);
+const [completedCount, setCompletedCount] = useState(0); // Add this state
 
 // Update the corresponding earnings state in the updateEarnings function
 const updateEarnings = (totalEarnings, section) => {
@@ -77,7 +78,11 @@ const updateEarnings = (totalEarnings, section) => {
     
     <HabitGrid section="Smoking" updateEarnings={(totalEarnings) => updateEarnings(totalEarnings, "Smoking")} />
      {/* Earnings Graph */}
-     <EarningsGraph earningsSmoking={earningsSmoking} section="Smoking" />
+     <EarningsGraph
+        earningsSmoking={earningsSmoking}
+        section="Smoking"
+        completedCount={completedCount} // Pass completedCount
+      />
 
   </div>
   
