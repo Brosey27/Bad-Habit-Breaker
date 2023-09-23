@@ -16,10 +16,6 @@ const EarningsGraph = ({ section, earningsSmoking, earningsDrinking }) => {
 
   return (
     <div className="mt-4">
-     
-      
-        
-      
       <p className="mt-2">Total Savings: ${formattedEarnings}</p>
     </div>
   );

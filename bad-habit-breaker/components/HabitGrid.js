@@ -21,7 +21,7 @@ const HabitGrid = ({ section, updateEarnings }) => {
 
     const clickedCount = updatedHabits.filter(Boolean).length;
 
-    const earningsPerClick = 25.0;
+    const earningsPerClick = 5.0;
     const totalEarnings = clickedCount * earningsPerClick;
 
     updateEarnings(totalEarnings); // Call the callback to update earnings in Home component
