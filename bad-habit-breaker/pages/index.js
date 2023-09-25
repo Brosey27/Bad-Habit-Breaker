@@ -5,6 +5,7 @@ import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Image from "next/image";
 import smoking from "../public/smokevape.svg";
 import alcohol from "../public/alcohol2.png";
+import screentime from "../public/screentime.png";
 
 
 
@@ -91,6 +92,17 @@ const updateEarnings = (totalEarnings, section) => {
   <div id="Drinking" className="container mx-auto mb-96">
     <h1 className="text-2xl font-semibold mb-4 text-center">Binge Drinking</h1>
     <Image alt="smoking" src={alcohol} className='w-[200px] mx-auto my-10' />
+    
+    <HabitGrid section="Drinking" updateEarnings={(totalEarnings) => updateEarnings(totalEarnings, "Drinking")} />
+      {/* Earnings Graph */}
+      <EarningsGraph earningsDrinking={earningsDrinking} section="Drinking" />
+
+  </div>
+
+   {/* ScreenTime */}
+   <div id="Drinking" className="container mx-auto mb-96">
+    <h1 className="text-2xl font-semibold mb-4 text-center">Less than 2 hours Screen Time</h1>
+    <Image alt="screentime" src={screentime} className='w-[200px] mx-auto my-10' />
     
     <HabitGrid section="Drinking" updateEarnings={(totalEarnings) => updateEarnings(totalEarnings, "Drinking")} />
       {/* Earnings Graph */}

@@ -6,7 +6,7 @@ const EarningsGraph = ({ section, earningsSmoking, earningsDrinking }) => {
     barWidth = Math.min(maxWidth, earningsSmoking);
   } else if (section === "Drinking") {
     barWidth = Math.min(maxWidth, earningsDrinking);
-  }
+  } 
 
   // Calculate the total earnings based on the section-specific earnings
   const totalEarnings = section === "Smoking" ? earningsSmoking : earningsDrinking;
