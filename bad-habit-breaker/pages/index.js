@@ -6,6 +6,8 @@ import Image from "next/image";
 import smoking from "../public/smokevape.svg";
 import alcohol from "../public/alcohol2.png";
 import screentime from "../public/screentime.png";
+import fastfood from "../public/fastfood.svg";
+
 
 
 
@@ -101,7 +103,7 @@ const updateEarnings = (totalEarnings, section) => {
 
    {/* ScreenTime */}
    <div id="Drinking" className="container mx-auto mb-96">
-    <h1 className="text-2xl font-semibold mb-4 text-center">Less than 2 hours Screen Time</h1>
+    <h1 className="text-2xl font-semibold mb-4 text-center">Excessive Screen Time</h1>
     <Image alt="screentime" src={screentime} className='w-[200px] mx-auto my-10' />
     
     <HabitGrid section="Drinking" updateEarnings={(totalEarnings) => updateEarnings(totalEarnings, "Drinking")} />
@@ -109,7 +111,19 @@ const updateEarnings = (totalEarnings, section) => {
       <EarningsGraph earningsDrinking={earningsDrinking} section="Drinking" />
 
   </div>
+
+  {/* Fastfood */}
+  <div id="Drinking" className="container mx-auto mb-96">
+    <h1 className="text-2xl font-semibold mb-4 text-center">Fast Food</h1>
+    <Image alt="fastfood" src={fastfood} className='w-[200px] mx-auto my-10' />
+    
+    <HabitGrid section="Drinking" updateEarnings={(totalEarnings) => updateEarnings(totalEarnings, "Drinking")} />
+      {/* Earnings Graph */}
+      <EarningsGraph earningsDrinking={earningsDrinking} section="Drinking" />
+
+  </div>
   
+ 
 
     </main>
   );
